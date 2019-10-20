@@ -1,7 +1,13 @@
-class Project(object):
-    """Project object."""
+from lib.gitlab import GitlabConfig
+from lib.registry import RegistryConfig
 
-    """
+
+class Project(object):
+    """Project object.
+
+    Related config part:
+
+    ```
     name: project-from-other-registry
     gitlab:
       secret_token: 'something'
@@ -16,9 +22,13 @@ class Project(object):
         - action: remove
           order: age
           limit: 20
+    ```
     """
 
     def __init__(self, **kwargs):
         self.name = kwargs.get('name')
-        self.gitlab = GitlabConfig(kwargs.get('gitlab'))
-        self.registry = RegistryConfig(kwargs.get('gitlab'))
+        if not self.name:
+            raise Exception
+
+        self.gitlab = GitlabConfig(**kwargs.get('gitlab', {}))
+        self.registry = RegistryConfig(**kwargs.get('registry', {}))

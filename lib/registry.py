@@ -1,11 +1,14 @@
+from lib.cleanup import CleanupRuleSet
+
+
 class RegistryConfig(object):
     """RegistryConfig object.
 
     Related config part:
 
+    ```
     address: http://127.0.0.1:5000/
     credentials: ''
-    repository: my/project
     rules:
       # default action
       - action: remove
@@ -19,7 +22,14 @@ class RegistryConfig(object):
         regexp: '^(?!master).*$'
         order: age
         limit: 40
+    ```
     """
 
     def __init__(self, **kwargs):
-        pass
+        self.address = kwargs.get('address', 'http://127.0.0.1:5000/')
+        self.credentials = kwargs.get('credentials', '')
+        self.repository = kwargs.get('repository', '')
+        self.rules = CleanupRuleSet(kwargs.get('rules', []))
+
+        if not self.repository:
+            raise Exception
