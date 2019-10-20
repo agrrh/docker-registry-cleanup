@@ -1,0 +1,49 @@
+{
+  "object_kind": "pipeline",
+  "object_attributes": {
+    "id": 27418,
+    "ref": "PROJECT-1096-adopt-terraform",
+    "tag": false,
+    "sha": "b57f4e0519fb5e16a44a3683a145d4b447d7ac80",
+    "before_sha": null,
+    "status": "failed",
+    "detailed_status": "failed",
+    "stages": [
+      "external"
+    ],
+    "created_at": "2019-09-21T19:04:32.246Z",
+    "finished_at": "2019-09-21T19:14:26.684Z",
+    "duration": null,
+    "variables": []
+  },
+  "user": {
+    "name": "Robot Ops",
+    "username": "robot-ops",
+    "avatar_url": "https://gitlab.example.org/uploads/-/system/user/avatar/151/avatar.png"
+  },
+  "project": {
+    "id": 498,
+    "name": "infrastructure",
+    "description": "Mono repository for all the infrastructure stuff: initialization, provision, deployment, etc",
+    "web_url": "https://gitlab.example.org/myrepo",
+    "avatar_url": null,
+    "git_ssh_url": "git@gitlab.example.org:myrepo.git",
+    "git_http_url": "https://gitlab.example.org/myrepo.git",
+    "namespace": "Ops",
+    "visibility_level": 0,
+    "path_with_namespace": "myrepo",
+    "default_branch": "master",
+    "ci_config_path": null
+  },
+  "commit": {
+    "id": "b57f4e0519fb5e16a44a3683a145d4b447d7ac80",
+    "message": "feat: implement default pipeline for infra tf\n\nSigned-off-by: Uncle Sam <me@example.org>\n",
+    "timestamp": "2019-09-21T18:55:24Z",
+    "url": "https://gitlab.example.org/myrepo/commit/b57f4e0519fb5e16a44f3683a145d4b447d7ac80",
+    "author": {
+      "name": "Uncle Sam",
+      "email": "me@example.org"
+    }
+  },
+  "builds": []
+}

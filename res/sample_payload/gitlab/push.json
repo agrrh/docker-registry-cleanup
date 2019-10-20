@@ -1,0 +1,94 @@
+{
+  "object_kind": "push",
+  "event_name": "push",
+  "before": "f56259c97d9e203a5fb26181d8e3b593f4d7dcef",
+  "after": "91c0cbda72a97ca90e761cf3a4240c889ec098e8",
+  "ref": "refs/heads/master",
+  "checkout_sha": "91c0cbda72a97ca90e761cf3a4240c889ec098e8",
+  "message": null,
+  "user_id": 130,
+  "user_name": "Uncle Sam",
+  "user_username": "usam",
+  "user_email": "",
+  "user_avatar": "https://gitlab.example.org/uploads/-/system/user/avatar/130/avatar.png",
+  "project_id": 498,
+  "project": {
+    "id": 498,
+    "name": "myproject",
+    "description": "Mono repository for all the infrastructure stuff: initialization, provision, deployment, etc",
+    "web_url": "https://gitlab.example.org/myrepo",
+    "avatar_url": null,
+    "git_ssh_url": "git@gitlab.example.org:myrepo.git",
+    "git_http_url": "https://gitlab.example.org/myrepo.git",
+    "namespace": "",
+    "visibility_level": 0,
+    "path_with_namespace": "myrepo",
+    "default_branch": "master",
+    "ci_config_path": null,
+    "homepage": "https://gitlab.example.org/myrepo",
+    "url": "git@gitlab.example.org:myrepo.git",
+    "ssh_url": "git@gitlab.example.org:myrepo.git",
+    "http_url": "https://gitlab.example.org/myrepo.git"
+  },
+  "commits": [
+    {
+      "id": "91c0cbda72a97ca90e761cf3a4240c889ec098e8",
+      "message": "Merge branch 'PROJECT-1165-etc-release-domains' into 'master'\n\nAdd etc-app23 dns records\n\nCloses PROJECT-1165\n\nSee merge request myrepo!53",
+      "timestamp": "2019-10-18T15:12:36Z",
+      "url": "https://gitlab.example.org/myrepo/commit/91c0cbda72a97ca90e761cf3a4240c889ec098e8",
+      "author": {
+        "name": "Bugs Bunny",
+        "email": "bbunny@example.org"
+      },
+      "added": [],
+      "modified": [
+        "resources/PROJECT/prod/dns-records-etc.tf"
+      ],
+      "removed": []
+    },
+    {
+      "id": "b433176812c426710ea8751175449382c66de09b",
+      "message": "chore: add etc-app23 dns records\n\nSigned-off-by: Bugs Bunny <bbunny@example.org>\n",
+      "timestamp": "2019-10-18T15:03:25Z",
+      "url": "https://gitlab.example.org/myrepo/commit/b433176812c426710ea8751175449382c66de09b",
+      "author": {
+        "name": "Bugs Bunny",
+        "email": "bbunny@example.org"
+      },
+      "added": [],
+      "modified": [
+        "resources/PROJECT/prod/dns-records-etc.tf"
+      ],
+      "removed": []
+    },
+    {
+      "id": "f56259c97d9e203a5fb26181d8e3b593f4d7dcef",
+      "message": "Merge branch 'PROJECT-1157-let-tableau-access-rds' into 'master'\n\nLet tableau.example.org access RDS\n\nCloses PROJECT-1157\n\nSee merge request myrepo!46",
+      "timestamp": "2019-10-18T10:47:37Z",
+      "url": "https://gitlab.example.org/myrepo/commit/f56259c97d9e203a5fb26181d8e3b593f4d7dcef",
+      "author": {
+        "name": "Uncle Sam",
+        "email": "usam@example.org"
+      },
+      "added": [],
+      "modified": [
+        "resources/project/region/main.tf",
+        "resources/project/region/rds.tf",
+        "resources/project/region/remote.tf",
+        "resources/project/region/sg.tf"
+      ],
+      "removed": []
+    }
+  ],
+  "total_commits_count": 3,
+  "push_options": [],
+  "repository": {
+    "name": "myproject",
+    "url": "git@gitlab.example.org:myrepo.git",
+    "description": "Mono repository for all the infrastructure stuff: initialization, provision, deployment, etc",
+    "homepage": "https://gitlab.example.org/myrepo",
+    "git_http_url": "https://gitlab.example.org/myrepo.git",
+    "git_ssh_url": "git@gitlab.example.org:myrepo.git",
+    "visibility_level": 0
+  }
+}
