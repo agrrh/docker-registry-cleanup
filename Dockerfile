@@ -1,5 +1,7 @@
 FROM python:3-slim
 
+ENV PYTHONDONTWRITEBYTECODE true
+
 WORKDIR /app
 
 COPY ./requirements.txt ./
