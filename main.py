@@ -4,16 +4,9 @@ from lib.config import Config
 from lib.project import Project
 
 from flask import Flask, request
-from docker_registry_client import (
-    # DockerRegistryClient,
-    BaseClient as DockerRegistryBaseClient,
-    Repository as DockerRegistryRepository
-)
 
 config_path = os.environ.get('DRC_CONFIG_PATH', './config.yml')
 config = Config(config_path)
-
-verify_ssl = os.environ.get('DRC_VERIFY_SSL', '').lower() in ('', 'true', 'yes')
 
 app = Flask(__name__)
 
@@ -39,15 +32,15 @@ def event_accept():
     ):
         return 'Must provide correct token for this project', 401
 
-    registry_client = DockerRegistryBaseClient(
-        project.registry.address,
-        verify_ssl=verify_ssl
-    )
-    repository = DockerRegistryRepository(registry_client, project.registry.repository)
+    project.registry.process()
 
-    project.registry.tags_list = repository.tags()
-
-    return project.registry.tags_list
+    return {
+        'tags': {
+            'all': project.registry.tags_list,
+            'remove': project.registry.tags_delete_list,
+            'save': project.registry.tags_save_list,
+        },
+    }, 202
 
 
 if __name__ == '__main__':

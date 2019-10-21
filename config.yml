@@ -25,6 +25,7 @@ projects:
       secret_token: 'something'
     registry:
       address: https://registry.example.org
+      verify_ssl: false
       credentials: 'admin:pass'
       repository: foo
       rules:

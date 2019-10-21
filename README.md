@@ -44,6 +44,7 @@ projects:
     secret_token: ''  # Use if specified in GitLab > Settings > Integrations
   registry:
     repository: my/project
+    verify_ssl: false
     rules:
       - <rule>
       - <rule>
