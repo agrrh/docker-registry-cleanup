@@ -10,7 +10,6 @@ from docker_registry_client import (
     Repository as DockerRegistryRepository
 )
 
-
 config_path = os.environ.get('DRC_CONFIG_PATH', './config.yml')
 config = Config(config_path)
 
@@ -52,6 +51,12 @@ def event_accept():
 
 
 if __name__ == '__main__':
+    host = os.environ.get('DRC_LISTEN_HOST', '0.0.0.0')
+    port = os.environ.get('DRC_LISTEN_PORT', '5000')
+    debug = os.environ.get('DRC_DEBUG', '').lower() in ('', 'true', 'yes')
+
     app.run(
-        host='0.0.0.0'
+        host=host,
+        port=port,
+        debug=debug
     )
