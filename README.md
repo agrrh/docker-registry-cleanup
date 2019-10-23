@@ -16,6 +16,13 @@ docker run -d --name docker-registry-cleanup \
   agrrh/docker-registry-cleanup
 ```
 
+#### Environment variables
+
+- `DRC_CONFIG_PATH` - config file to use, defaults to `./config.yml`
+- `DRC_LISTEN_HOST` - address to bind to, defaults to `0.0.0.0`
+- `DRC_LISTEN_PORT` - address to bind to, defaults to `5000`
+- `DRC_DEBUG` - set to `yes` or `true` to run in debug mode
+
 ## Testing
 
 Using [httpie](https://httpie.org/):
@@ -43,12 +50,13 @@ projects:
   gitlab:
     secret_token: ''  # Use if specified in GitLab > Settings > Integrations
   registry:
-    repository: my/project
     verify_ssl: false
-    rules:
-      - <rule>
-      - <rule>
-      - <rule>
+  images:
+    - repository: my/project
+      rules:
+        - <rule>
+        - <rule>
+        - <rule>
 ```
 
 Recommended ruleset scheme is:
@@ -58,7 +66,7 @@ rules:
   - action: remove
   - action: save
     regexp: '^.*$'
-    order: age
+    order: created
     limit: 20
 ```
 
@@ -78,7 +86,7 @@ Let's say, we are pushing tags in `branch_name.pipeline_id` format. Then other r
 ```yaml
 - action: save
   regexp: '^master\.[0-9]+$'
-  order: age
+  order: created
   limit: 10
 ```
 
@@ -87,7 +95,7 @@ Also we would like to save some newest images across rest of tags. Consider 40 a
 ```yaml
 - action: save
   regexp: '^(?!master).*$'
-  order: age
+  order: created
   limit: 40
 ```
 

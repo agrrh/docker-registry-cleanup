@@ -6,7 +6,12 @@ WORKDIR /app
 
 COPY ./requirements.txt ./
 
-RUN pip install -r requirements.txt
+RUN apt-get update \
+  && apt-get install git -y \
+  && pip install -r requirements.txt \
+  && apt-get purge git -y \
+  && apt-get autoremove -y \
+  && rm -rf /var/lib/apt/lists/*
 
 COPY ./ ./
 

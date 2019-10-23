@@ -5,33 +5,36 @@ projects:
     registry:
       address: http://127.0.0.1:5000/
       credentials: ''
-      repository: my/project
-      rules:
-        # default action
-        - action: remove
-        # save LIMIT newest "master.[0-9]+" tags
-        - action: save
-          regexp: '^master\.[0-9]+$'
-          order: age
-          limit: 10
-        # save LIMIT newest across non-master tags
-        - action: save
-          regexp: '^(?!master).*$'
-          order: age
-          limit: 40
+    images:
+      - repository: my/project
+        rules:
+          - action: remove
+          # save LIMIT newest "master.[0-9]+" tags
+          - action: save
+            regexp: '^master\.[0-9]+$'
+            order: created
+            limit: 10
+          # save LIMIT newest across non-master tags
+          - action: save
+            regexp: '^(?!master).*$'
+            order: created
+            limit: 40
+          # save specific tag
+          - action: save
+            regexp: '^bar$'
 
-  - name: project-from-other-registry
+  - name: group_name/another-project
     gitlab:
       secret_token: 'something'
     registry:
       address: https://registry.example.org
       verify_ssl: false
       credentials: 'admin:pass'
-      repository: foo
-      rules:
-        # default action
-        - action: save
-        # remove images leaving LIMIT newest
-        - action: remove
-          order: age
-          limit: 20
+    images:
+      - repository: foo
+        rules:
+          - action: save
+          # remove images leaving LIMIT newest
+          - action: remove
+            order: created
+            limit: 20
