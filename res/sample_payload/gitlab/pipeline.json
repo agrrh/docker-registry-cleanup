@@ -31,7 +31,7 @@
     "git_http_url": "https://gitlab.example.org/myrepo.git",
     "namespace": "Ops",
     "visibility_level": 0,
-    "path_with_namespace": "myrepo",
+    "path_with_namespace": "Ops/infrastructure",
     "default_branch": "master",
     "ci_config_path": null
   },
